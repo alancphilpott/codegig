@@ -8,7 +8,9 @@ router.get("/", (req, res) =>
     Gig.findAll()
         .then((gigs) => {
             console.log(gigs);
-            res.sendStatus(200);
+            res.render("gigs", {
+                gigs: gigs.map((gig) => gig.toJSON())
+            });
         })
         .catch((err) => console.log("Error Retrieving Gigs" + err))
 );
