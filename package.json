@@ -1,0 +1,31 @@
+{
+    "name": "codegig",
+    "version": "1.0.0",
+    "description": "Simple job finder app for coders.",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "dev": "nodemon app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/alancphilpott/codegig.git"
+    },
+    "author": "Alan Philpott",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/alancphilpott/codegig/issues"
+    },
+    "homepage": "https://github.com/alancphilpott/codegig#readme",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "express": "^4.17.1",
+        "express-handlebars": "^5.1.0",
+        "pg": "^8.3.0",
+        "pg-hstore": "^2.3.3",
+        "sequelize": "^6.3.4"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    }
+}
