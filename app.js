@@ -22,5 +22,6 @@ app.get("/", (req, res) => res.render("index", { layout: "landing" }));
 // Gig Routes
 app.use("/gigs", require("./routes/gigs"));
 
+// Start Express Server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, console.log(`Server Started on Port ${PORT}`));
