@@ -10,6 +10,13 @@ db.authenticate()
 
 const app = express();
 
+// Handlebars
+app.engine("handlebars", handlebars({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+// Set Static Folder
+app.use(express.static(path.join(__dirname, "public")));
+
 app.get("/", (req, res) => res.send("INDEX"));
 
 // Gig Routes
