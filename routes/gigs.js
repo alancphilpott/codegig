@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const db = require("../config/db");
 const { Gig, validateGig } = require("../models/Gig");
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
 // Get Gig List
 router.get("/", (req, res) =>
@@ -51,6 +53,19 @@ router.post("/add", (req, res) => {
             .then((gig) => res.redirect("/gigs"))
             .catch((err) => console.log("Error Adding Gig" + err));
     }
+});
+
+// Search For Gigs
+router.get("/search", (req, res) => {
+    let { term } = req.query;
+
+    Gig.findAll({
+        where: { technologies: { [Op.like]: "%" + term.toLowerCase() + "%" } }
+    })
+        .then((gigs) =>
+            res.render("gigs", { gigs: gigs.map((gig) => gig.toJSON()) })
+        )
+        .catch((err) => console.log("Error Searching Gigs" + err));
 });
 
 module.exports = router;
